@@ -2,13 +2,29 @@ import React from 'react';
 import SectionLabel from '@/components/ui/SectionLabel';
 import useReveal from '@/hooks/useReveal';
 
-const images = Array.from({ length: 18 }).map(
-  (_, i) => `/new_images/61230592319560779${68 + i}.jpg`
-);
+const assets = [
+  '6123059231956077968.jpg',
+  '6123059231956077970.jpg',
+  '6123059231956077971.jpg',
+  '6123059231956077977.jpg',
+  '6123059231956077978.jpg',
+  '6123059231956077980.jpg',
+  '6123059231956077981.jpg',
+  '6123059231956077982.jpg',
+  '6123059231956077983.jpg',
+  '6123059231956077984.jpg',
+  '6123059231956077985.jpg',
+  'chilli garlic noodles cafe text animation.mp4',
+  'GRAND OPENING.mp4',
+  'photo_6123059231956077981_y.jpg',
+  'photo_6123059231956077983_y.jpg',
+  'photo_6123059231956077985_y.jpg',
+  'photo_6125315142053465539_y.jpg'
+].map(file => `/new_images/${file}`);
 
 export default function Gallery() {
   const headerRef = useReveal();
-  const theta = 360 / images.length;
+  const theta = 360 / assets.length;
 
   return (
     <section id="gallery" className="section" style={{ background: '#050508', overflow: 'hidden' }}>
@@ -103,7 +119,7 @@ export default function Gallery() {
           -webkit-box-reflect: below 20px linear-gradient(transparent, transparent 20%, rgba(0,0,0,0.35));
         }
 
-        .gallery-item img {
+        .gallery-item img, .gallery-item video {
           width: 100%;
           height: 100%;
           object-fit: cover;
@@ -135,17 +151,31 @@ export default function Gallery() {
 
       <div className="gallery-viewport">
         <div className="gallery-cylinder">
-          {images.map((src, i) => (
-            <div
-              key={i}
-              className="gallery-item"
-              style={{
-                transform: `rotateY(${i * theta}deg) translateZ(var(--gallery-radius))`
-              }}
-            >
-              <img src={src} alt={`Gallery ${i + 1}`} loading="lazy" />
-            </div>
-          ))}
+          {assets.map((src, i) => {
+            const isVideo = src.toLowerCase().endsWith('.mp4');
+            return (
+              <div
+                key={i}
+                className="gallery-item"
+                style={{
+                  transform: `rotateY(${i * theta}deg) translateZ(var(--gallery-radius))`
+                }}
+              >
+                {isVideo ? (
+                  <video
+                    src={src}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    loading="lazy"
+                  />
+                ) : (
+                  <img src={src} alt={`Gallery ${i + 1}`} loading="lazy" />
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
     </section >
