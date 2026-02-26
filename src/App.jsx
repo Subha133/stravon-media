@@ -18,7 +18,7 @@ export default function App() {
       <main>
         <Hero data={agencyData} />
         <Gallery />
-        {/* <Services data={agencyData} /> */}
+        <Services data={agencyData} />
         <GrowthStrategy data={agencyData} />
         <PersonalBranding data={agencyData} />
         <About data={agencyData} />
