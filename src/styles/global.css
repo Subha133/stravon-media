@@ -1,0 +1,121 @@
+/* ─────────────────────────────────────────────────────────
+   global.css
+   Design tokens, CSS reset, and base element styles.
+   ───────────────────────────────────────────────────────── */
+
+/* ── Design Tokens ── */
+:root {
+  /* Colors */
+  --color-bg: #050508;
+  --color-bg-soft: #0a0a10;
+  --color-card: rgba(255, 255, 255, 0.03);
+  --color-card-hover: rgba(255, 255, 255, 0.06);
+  --color-accent: #e8c97e;
+  --color-accent-dim: rgba(232, 201, 126, 0.12);
+  --color-accent-glow: rgba(232, 201, 126, 0.3);
+  --color-text: #f0ede8;
+  --color-text-soft: rgba(240, 237, 232, 0.8);
+  --color-text-muted: rgba(240, 237, 232, 0.65);
+  --color-border: rgba(255, 255, 255, 0.07);
+  --color-border-accent: rgba(232, 201, 126, 0.25);
+
+  /* Gradients */
+  --gradient-gold: linear-gradient(135deg, rgba(232, 201, 126, 0.06) 0%, rgba(10, 10, 16, 0.8) 50%, rgba(100, 80, 200, 0.04) 100%);
+
+  /* Typography */
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --text-xs: 14px;
+  --text-sm: 16px;
+  --text-base: 18px;
+  --text-lg: 20px;
+  --text-xl: 24px;
+
+  /* Spacing */
+  --nav-height: 72px;
+  --section-pad: 120px;
+  --section-pad-mobile: 80px;
+
+  /* Radii */
+  --radius: 16px;
+  --radius-sm: 10px;
+  --radius-xs: 7px;
+
+  /* Motion */
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Reset ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 2px;
+}
+
+/* ── Typography ── */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+/* ── Elements ── */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+input,
+textarea,
+select {
+  font-family: var(--font-body);
+}
