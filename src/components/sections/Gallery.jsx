@@ -71,7 +71,7 @@ export default function Gallery() {
             --gallery-radius: 550px; /* Increased for wider gap */
           }
         }
-        
+
         @keyframes spin-3d-carousel {
           0% { transform: rotateY(0deg); }
           100% { transform: rotateY(-360deg); }
